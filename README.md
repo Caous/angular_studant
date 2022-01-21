@@ -1,2 +1,2 @@
-# angular_studant
-Projeto de estudos angular
+# Frontend Oficina Na Nuvem
+Projeto em angular Oficina Na nuvem
