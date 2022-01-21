@@ -1,0 +1,30 @@
+footer{
+    background-color: #000;
+    font-family     : Rubik, Calibri, Arial;
+    color           : white
+}
+
+.title_footer {
+    color         : #919496;
+    font-size     : 12px;
+    font-weight   : 400;
+    line-height   : 1.4;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.content_footer {
+    display        : inline-block;
+    font-size      : 16px;
+    font-weight    : 200;
+    line-height    : 1.5;
+    text-decoration: none;
+}
+
+.icon-social {
+    background-color: #222326;
+    border-radius   : 50%;
+    display         : inline-block;
+    position        : relative;
+    overflow        : hidden;
+}
