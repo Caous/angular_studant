@@ -1,0 +1,44 @@
+<section id="container" class=" p-5 ">
+
+    <section class="container text-center text-white bg-color">
+        <section class="row p-2">
+            <section class="col-lg-12">
+                <img src="../../assets/img/login_user_1.png" width="30%" alt="Imagem usuário de login" />
+            </section>
+            <section><h1>Dados pessoais</h1></section>
+        </section>
+
+        <section class="row">
+            <section class="col-lg-12 ">
+                <section class="row">
+                    <section class="col-lg-3">
+                        <label>Email/Usuário</label><br>
+                        <label>{{user.email}}</label>
+                    </section>
+                    <section class="col-lg-3">
+                        <label>Senha</label><br>
+                        <label>{{user.password}}</label>
+                    </section>
+                    <section class="col-lg-3">
+                        <label>Usuário</label><br>
+                        <label>{{user.username}}</label>
+                    </section>
+                </section>
+                <section class="row">
+                    <section class="col-lg-3">
+                        <label>Full Name</label><br>
+                        <label>{{user.firstName}} {{user.lastName}}</label>
+                    </section>
+                    <section class="col-lg-3">
+                        <label>Token</label><br>
+                        <label>{{user.token}}</label>
+                    </section>
+                    <section class="col-lg-3">
+                        <label>Departamento</label><br>
+                        <label></label>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
