@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserModel } from '../repository/model/UserModel';
+import { UserService } from '../repository/service/user.service';
 
 @Component({
   selector: 'ofcn-dados',
@@ -8,11 +10,16 @@ import { UserModel } from '../repository/model/UserModel';
 })
 export class DadosComponent implements OnInit {
 
-  @Input() user: UserModel;
+  user: UserModel;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private _userService: UserService) { }
 
   ngOnInit(): void {
+
+    const intid = this.activatedRoute.snapshot.params['id'];
+
+    this._userService.getDescriptionUser(intid).subscribe(response => this.user = response)
+    
   }
 
 }

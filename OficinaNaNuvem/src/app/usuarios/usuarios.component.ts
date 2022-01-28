@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../repository/model/UserModel';
+import { UserService } from '../repository/service/user.service';
 
 @Component({
   selector: 'ofcn-usuarios',
@@ -8,62 +9,24 @@ import { UserModel } from '../repository/model/UserModel';
 })
 export class UsuariosComponent implements OnInit {
 
-  users: UserModel [] = [
-    {
-      id: 1,
-      email: 'teste@teste.com',
-      firstName: 'Gustavo',
-      lastName: 'Nascimento',
-      token: 'fadsjafsjn',
-      password: 'P@ssw0rd',
-      username: 'Gusta',
-      dtInclused: '9999-12-30'
-    },
-    {
-      id: 2,
-      email: 'teste@teste.com',
-      firstName: 'Felipe',
-      lastName: 'Santana',
-      token: 'fadsjafsjn',
-      password: 'P@ssw0rd',
-      username: 'Felippe',
-      dtInclused: '9999-12-30'
-    },
-    {
-      id: 3,
-      email: 'teste@teste.com',
-      firstName: 'Lucas',
-      lastName: 'Nicodemo',
-      token: 'fadsjafsjn',
-      password: 'P@ssw0rd',
-      username: 'Luca',
-      dtInclused: '9999-12-30'
-    },
-    {
-      id: 4,
-      email: 'teste@teste.com',
-      firstName: 'Marisa',
-      lastName: 'Rozario',
-      token: 'fadsjafsjn',
-      password: 'P@ssw0rd',
-      username: 'Mari',
-      dtInclused: '9999-12-30'
-    },
-    {
-      id: 5,
-      email: 'teste@teste.com',
-      firstName: 'Fred',
-      lastName: 'Rozario',
-      token: 'fadsjafsjn',
-      password: 'P@ssw0rd',
-      username: 'Fred',
-      dtInclused: '9999-12-30'
-    }
+  users: UserModel[] = [];
+  constructor(private _userService: UserService) {
 
-  ]
-  constructor() { }
+
+  }
 
   ngOnInit(): void {
+    this._userService.getAllUser().subscribe(us => this.users = us)
+  }
+
+  exclused(id: number) {
+    this._userService.deleteUser(id.toString()).subscribe(
+      us => {
+        if (us == "User deleted") {
+          this.ngOnInit()
+        }
+      }
+    )
   }
 
 }

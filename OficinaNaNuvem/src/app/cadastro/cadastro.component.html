@@ -1,1 +1,62 @@
-<p>cadastro works!</p>
+<div class="container p-4">
+    <form #form="ngForm" novalidate>
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label>UserName</label>
+                    <input type="text" class="form-control" id="iptUserName" placeholder="UserName" name="userName"
+                        ngModel [value]="user?.userName">                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="iptPassword" placeholder="Password" name="password"
+                        ngModel [value]="user?.password">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Password confirmed</label>
+                    <input type="password" class="form-control" id="iptConfirmedPass" placeholder="Password"
+                        name="passwordConfirmed" ngModel [value]="user?.password">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" id="iptEmail" placeholder="Email" name="email" ngModel
+                        [value]="user?.email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Departament</label>
+                    <select class="form-select" aria-label="Default select example" name="departament" ngModel>
+                        <option value="1">Suporte Nível I</option>
+                        <option value="2">Suporte Nível II</option>
+                        <option value="3">Suporte Nível III</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" id="iptFirstName" placeholder="First Name" name="firstName"
+                        ngModel [value]="user?.firstName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" id="iptLastName" placeholder="Last Name" name="lastName"
+                        ngModel [value]="user?.lastName">
+                </div>
+            </div>
+            
+        </div>
+
+        <div *ngIf="!user.edit">
+            <button type="submit" class="btn btn-primary mt-2" (click)="saveUser(form.value)">Create</button>
+        </div>
+        <div *ngIf="user.edit">
+            <button type="submit" class="btn btn-primary mt-2" (click)="updateUser(form.value)">Atualizar</button>
+        </div>
+    </form>
+</div>

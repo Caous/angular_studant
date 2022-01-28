@@ -2,34 +2,57 @@
 
     <section class="container">
         <section class="row bg-color text-white p-2">
+
             <section class="col-lg-12">
                 <img src="../../assets/img/login_user_1.png" width="30%" alt="Imagem usuário de login" />
             </section>
             <section class="col-lg-12">
-                <h1>Bem-Vindo por favor efetue Login</h1>
-                <h5>Desta forma vamos lhe autenticar em nosso site</h5>
+                <h1>Bem-vindo por favor efetue Login</h1>
+                <h3>Para ter acesso ao sistema de usuários</h3>
             </section>
-            <section class="col-lg-12 ">
-                <section>
-                    <label>Email/Usuário</label><br>
-                    <input type="email" placeholder="Entre com o e-mail ou usuário">
-                </section>
-                <section>
-                    <label>Senha</label><br>
-                    <input type="password" placeholder="Senha">
-                </section>
-            </section>
-            <section class="col-lg-12">
-
-
-                <section class="col-lg-12 p-2">
-                    <a type="button" class="btn btn-sm btn-success " [href]="['/usuarios']">Logar</a>
-                </section>
-                <section class="col-lg-12">
-                    <label>Esqueci minha senha clique <a href="#">aqui</a></label>
-                </section>
-            </section>
-
+            <form #form="ngForm" novalidate>
+                <div class="row">
+                    <section class="col-lg-12 ">
+                        <div class="col-lg-12">
+                            <label>Email/Usuário</label>
+                            <input type="email" class="form-control"
+                                [class.is-valid]="iptEmail.valid && (iptEmail.dirty || iptEmail.touched)"
+                                [class.is-invalid]="!iptEmail.valid && (!iptEmail.dirty || !iptEmail.touched)" name="email"
+                                #iptEmail="ngModel" ngModel required placeholder="Entre com o e-mail ou usuário">
+                            <div class="valid-feedback">
+                                Campo e-mail preenchido!
+                            </div>
+                            <div class="invalid-feedback">
+                                E-mail requer preenchimento minímo!
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label>Senha</label>
+                            <input [class.is-valid]="iptPassword.valid && (iptPassword.dirty || iptPassword.touched)"
+                                [class.is-invalid]="!iptPassword.valid && (!iptPassword.dirty || !iptPassword.touched)"
+                                type="password" name="password" minlength="8" #iptPassword="ngModel" ngModel required
+                                placeholder="Senha" class="form-control">
+                            <div class="valid-feedback">
+                                Preenchimendo mínimo Ok!
+                            </div>
+                            <div class="invalid-feedback">
+                                Senha requer preenchimento minímo!
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col-lg-12">
+                        <section class="col-lg-12 p-2">
+                            <button type="button" class="btn btn-sm btn-success " (click)="loginUser(form.value)"
+                                [disabled]="!form.valid">Logar</button>
+                        </section>
+                        <section class="col-lg-12">
+                            <label>Esqueci minha senha clique <a href="#">aqui</a></label>
+                        </section>
+                    </section>
+                </div>
+            </form>
         </section>
     </section>
 </section>

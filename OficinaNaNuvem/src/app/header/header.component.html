@@ -2,12 +2,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white text-white text-uppercase">
 
         <div class="container-fluid p-2 ">
-
-            <span class="navbar-text text-white">
-                <h5>
-                    < Execute Tech />
+            <a [routerLink]="['/']" class="nav-link text-white" >
+                <span class="navbar-text text-white">
+                    <h5>
+                        < Execute Tech />
                     </h5>
-            </span>
+                </span>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -15,11 +16,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="nav  text-white">
-                    <li class="nav-item text-white" routerLinkActive="active">
-                        <a class="nav-link  text-white" [routerLink]="['/']" >Página Atual</a>
-                    </li>                    
                     <li class="nav-item" routerLinkActive="active">
-                        <a [routerLink]="['/login']" class="nav-link text-white">Login</a>
+                        <a [routerLink]="['/login']" class="nav-link text-white">Sistema</a>
                     </li>
 
                 </ul>

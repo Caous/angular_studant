@@ -1,0 +1,1 @@
+export const pathWebApi = 'https://localhost:44384/api'
